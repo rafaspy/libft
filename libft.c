@@ -30,6 +30,7 @@ int ft_isdigit(int c)
 	return (0);
 }
 int ft_isalnum(int c);
+// lo hare en 42
 
 int ft_isascii(int c)
 {
