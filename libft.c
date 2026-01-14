@@ -15,6 +15,18 @@ void *ft_memset(void *b, int c, size_t len)
 	}
 	return (b);
 }
+
+void ft_bzero(void *b, size_t n)
+{
+	unsigned char *res;
+
+	res = (unsigned char *)b;
+	while (n > 0)
+	{
+		*res++ = '\0';
+		n--;
+	}
+}
 int ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
@@ -43,10 +55,10 @@ int main(void)
 	char a[20];
 	char b[20];
 
-	ft_memset(a, 42, 20);
-	memset(b, 42, 20);
+	ft_bzero(a, 42);
+	bzero(b, 42);
 
-	if (memcmp(a, b, 20) == 0)
+	if (memcmp(a, b, 42) == 0)
 		printf("OK\n");
 	else
 		printf("ERROR\n");
