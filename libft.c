@@ -1,5 +1,53 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rafsanch <rafsanch@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/15 18:52:18 by rafsanch          #+#    #+#             */
+/*   Updated: 2026/01/15 19:39:18 by rafsanch         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include <string.h>
+
+
+int	ft_isalpha(unsigned char c)
+{
+	if ((c < 65 || c > 90) && (c < 97 || c > 122))
+	{
+		return (0);
+	}
+	return (1);
+}
+
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+
+	return (0);
+}
+
+int ft_isalnum(int c)
+{
+	if ((c >= 'A' && c <= 'Z')
+		|| (c >= 'a' && c <= 'z')
+		|| (c >= '0' && c <= '9'))
+	{
+		return (1);
+	}
+	return (0);
+}
+
+int	ft_isascii(int c)
+{
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
+}
 
 void *ft_memset(void *b, int c, size_t len)
 {
@@ -16,9 +64,9 @@ void *ft_memset(void *b, int c, size_t len)
 	return (b);
 }
 
-void ft_bzero(void *b, size_t n)
+void	ft_bzero(void *b, size_t n)
 {
-	unsigned char *res;
+	unsigned char	*res;
 
 	res = (unsigned char *)b;
 	while (n > 0)
@@ -27,29 +75,7 @@ void ft_bzero(void *b, size_t n)
 		n--;
 	}
 }
-int ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-
-	return (0);
-}
-int ft_isalnum(int c);
-// lo hago en 42
-int ft_isascii(int c)
-{
-	if (c >= 0 && c <= 127)
-		return (1);
-	return (0);
-}
-int ft_isprint(int c)
-{
-	if (c >= 32 && c <= 126)
-		return (1);
-	return (0);
-}
-
-int main(void)
+/* int main(void)
 {
 	// printf("Mi funcion devuelve %d", ft_isascii('\0'));
 	char a[20];
@@ -64,4 +90,4 @@ int main(void)
 		printf("ERROR\n");
 
 	return (0);
-}
+} */
