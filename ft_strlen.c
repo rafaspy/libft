@@ -6,7 +6,7 @@
 /*   By: rafsanch <rafsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:05:20 by rafsanch          #+#    #+#             */
-/*   Updated: 2026/01/15 20:02:32 by rafsanch         ###   ########.fr       */
+/*   Updated: 2026/01/16 19:46:22 by rafsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,3 @@ size_t	ft_strlen(const char *s)
 	}
 	return (i);
 }
-/* int	main(void)
-{
-	const char	*test = "hol";
-
-	printf("Mi funcion devuelve %zu", ft_strlen(test));
-} */

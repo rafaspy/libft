@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rafsanch <rafsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/15 21:09:13 by rafsanch          #+#    #+#             */
-/*   Updated: 2026/01/16 19:44:48 by rafsanch         ###   ########.fr       */
+/*   Created: 2026/01/16 19:53:16 by rafsanch          #+#    #+#             */
+/*   Updated: 2026/01/16 21:21:20 by rafsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-void	*memmove(void *dest, const void *src, size_t n)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	const unsigned char	*s;
-	size_t				i;
-	unsigned char		*d;
+	size_t	dst_len;
+	size_t	src_len;
+	size_t	i;
 
-	s = (unsigned char *)src;
-	d = (unsigned char *)dest;
 	i = 0;
-	if (d < s)
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
+	if (dst_len >= size)
 	{
-		while (i < n)
-		{
-			d[i] = s[i];
-			i++;
-		}
+		return (size + src_len);
 	}
-	else if (d > s)
+	while (src[i] && (dst_len + i) < size - 1)
 	{
-		while (n > 0)
-		{
-			n--;
-			d[n] = s[n];
-		}
+		dst[dst_len + i] = src[i];
+		i++;
 	}
-	return (dest);
+	dst[dst_len + i] = '\0';
+	return (dst_len + src_len);
 }

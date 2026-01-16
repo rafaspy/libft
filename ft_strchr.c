@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rafsanch <rafsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/15 21:09:13 by rafsanch          #+#    #+#             */
-/*   Updated: 2026/01/16 19:44:48 by rafsanch         ###   ########.fr       */
+/*   Created: 2026/01/16 22:11:12 by rafsanch          #+#    #+#             */
+/*   Updated: 2026/01/16 23:17:38 by rafsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-void	*memmove(void *dest, const void *src, size_t n)
+char	*ft_strchr(const char *s, int c)
 {
-	const unsigned char	*s;
-	size_t				i;
-	unsigned char		*d;
+	unsigned char	character;
 
-	s = (unsigned char *)src;
-	d = (unsigned char *)dest;
-	i = 0;
-	if (d < s)
+	character = (unsigned char)c;
+	while (*s)
 	{
-		while (i < n)
+		if (*s == character)
 		{
-			d[i] = s[i];
-			i++;
+			return ((char *)s);
 		}
+		s++;
 	}
-	else if (d > s)
+	if (character == '\0')
 	{
-		while (n > 0)
-		{
-			n--;
-			d[n] = s[n];
-		}
+		return ((char *)s);
 	}
-	return (dest);
+	return (NULL);
 }
+
