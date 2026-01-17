@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rafsanch <rafsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/16 22:11:12 by rafsanch          #+#    #+#             */
-/*   Updated: 2026/01/17 17:08:33 by rafsanch         ###   ########.fr       */
+/*   Created: 2026/01/17 17:39:01 by rafsanch          #+#    #+#             */
+/*   Updated: 2026/01/17 17:58:46 by rafsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-char	*ft_strchr(const char *s, int c)
+int	strncmp(const char *s1, const char *s2, size_t n)
 {
-	unsigned char	character;
+	size_t	i;
 
-	character = (unsigned char)c;
-	while (*s)
+	i = 0;
+	while (i < n)
 	{
-		if (*s == character)
+		if (((unsigned char)s1[i] != (unsigned char)s2[i])
+			|| s1[i] == '\0'
+			|| s2[i] == '\0')
 		{
-			return ((char *)s);
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 		}
-		s++;
+		i++;
 	}
-	if (character == '\0')
-	{
-		return ((char *)s);
-	}
-	return (NULL);
+	return (0);
 }

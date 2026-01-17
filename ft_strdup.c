@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rafsanch <rafsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/16 22:11:12 by rafsanch          #+#    #+#             */
-/*   Updated: 2026/01/17 17:08:33 by rafsanch         ###   ########.fr       */
+/*   Created: 2026/01/17 22:31:24 by rafsanch          #+#    #+#             */
+/*   Updated: 2026/01/17 23:08:22 by rafsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <string.h>
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strdup(const char *s)
 {
-	unsigned char	character;
+	char	*str;
+	int		i;
 
-	character = (unsigned char)c;
-	while (*s)
+	i = 0;
+	str = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	while (s[i])
 	{
-		if (*s == character)
-		{
-			return ((char *)s);
-		}
-		s++;
+		str[i] = s[i];
+		i++;
 	}
-	if (character == '\0')
-	{
-		return ((char *)s);
-	}
-	return (NULL);
+	str[i] = '\0';
+	return (str);
 }

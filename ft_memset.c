@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rafsanch <rafsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/16 22:11:12 by rafsanch          #+#    #+#             */
-/*   Updated: 2026/01/17 17:08:33 by rafsanch         ###   ########.fr       */
+/*   Created: 2026/01/17 22:21:06 by rafsanch          #+#    #+#             */
+/*   Updated: 2026/01/17 22:21:26 by rafsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-char	*ft_strchr(const char *s, int c)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	unsigned char	character;
+	int				i;
+	unsigned char	*res;
 
-	character = (unsigned char)c;
-	while (*s)
+	i = 0;
+	res = (unsigned char *)b;
+	while (len > 0)
 	{
-		if (*s == character)
-		{
-			return ((char *)s);
-		}
-		s++;
+		res[i++] = (unsigned char)c;
+		len--;
 	}
-	if (character == '\0')
-	{
-		return ((char *)s);
-	}
-	return (NULL);
+	return (b);
 }

@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rafsanch <rafsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/16 22:11:12 by rafsanch          #+#    #+#             */
-/*   Updated: 2026/01/17 17:08:33 by rafsanch         ###   ########.fr       */
+/*   Created: 2026/01/17 21:51:55 by rafsanch          #+#    #+#             */
+/*   Updated: 2026/01/17 22:23:14 by rafsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-char	*ft_strchr(const char *s, int c)
+void	*calloc(size_t nmemb, size_t size)
 {
-	unsigned char	character;
+	void	*ptr;
 
-	character = (unsigned char)c;
-	while (*s)
-	{
-		if (*s == character)
-		{
-			return ((char *)s);
-		}
-		s++;
-	}
-	if (character == '\0')
-	{
-		return ((char *)s);
-	}
-	return (NULL);
+	ptr = malloc(nmemb * size);
+
+	if (ptr == NULL)
+		return (NULL);
+	ft_memset(ptr, 0, nmemb * size);
+	return (ptr);
 }

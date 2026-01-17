@@ -6,7 +6,7 @@
 /*   By: rafsanch <rafsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 18:52:18 by rafsanch          #+#    #+#             */
-/*   Updated: 2026/01/15 19:39:18 by rafsanch         ###   ########.fr       */
+/*   Updated: 2026/01/17 22:13:14 by rafsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ int	ft_isascii(int c)
 	return (0);
 }
 
-void *ft_memset(void *b, int c, size_t len)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	int i;
-	unsigned char *res;
+	int				i;
+	unsigned char	*res;
 
 	i = 0;
 	res = (unsigned char *)b;

@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rafsanch <rafsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/16 22:11:12 by rafsanch          #+#    #+#             */
-/*   Updated: 2026/01/17 17:08:33 by rafsanch         ###   ########.fr       */
+/*   Created: 2026/01/17 19:45:43 by rafsanch          #+#    #+#             */
+/*   Updated: 2026/01/17 21:49:49 by rafsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 
-char	*ft_strchr(const char *s, int c)
+int	ft_atoi(const char *nptr)
 {
-	unsigned char	character;
+	int	i;
+	int	neg;
+	int	res;
 
-	character = (unsigned char)c;
-	while (*s)
+	res = 0;
+	i = 0;
+	neg = 1;
+	if (nptr[i] == '\0')
+		return (0);
+	while (nptr[i] == ' ' || (nptr[i] >= '\t' && nptr[i] <= '\r'))
+		i++;
+	if (nptr[i] == '+' || nptr[i] == '-')
 	{
-		if (*s == character)
-		{
-			return ((char *)s);
-		}
-		s++;
+		if (nptr[i] == '-')
+			neg = -1;
+		i++;
 	}
-	if (character == '\0')
+	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		return ((char *)s);
+		res = res * 10 + (nptr[i] - '0');
+		i++;
 	}
-	return (NULL);
+	return (res * neg);
 }
+

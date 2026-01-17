@@ -1,33 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rafsanch <rafsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/16 22:11:12 by rafsanch          #+#    #+#             */
-/*   Updated: 2026/01/17 17:08:33 by rafsanch         ###   ########.fr       */
+/*   Created: 2026/01/17 19:25:39 by rafsanch          #+#    #+#             */
+/*   Updated: 2026/01/17 19:44:13 by rafsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	unsigned char	character;
+	size_t	i;
+	size_t	j;
+	size_t	isave;
 
-	character = (unsigned char)c;
-	while (*s)
+	i = 0;
+	if (*little == '\0')
+		return ((char *)big);
+	while (big[i] && i < len)
 	{
-		if (*s == character)
+		if (big[i] == little[0])
 		{
-			return ((char *)s);
+			isave = i;
+			j = 0;
+			while (isave < len && little[j] && big[isave] == little[j])
+			{
+				isave++;
+				j++;
+			}
+			if (little[j] == '\0')
+				return ((char *)&big[i]);
 		}
-		s++;
-	}
-	if (character == '\0')
-	{
-		return ((char *)s);
+		i++;
 	}
 	return (NULL);
 }
