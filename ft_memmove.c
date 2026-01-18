@@ -6,11 +6,11 @@
 /*   By: rafsanch <rafsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 21:09:13 by rafsanch          #+#    #+#             */
-/*   Updated: 2026/01/16 19:44:48 by rafsanch         ###   ########.fr       */
+/*   Updated: 2026/01/18 20:52:04 by rafsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 void	*memmove(void *dest, const void *src, size_t n)
 {

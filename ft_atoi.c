@@ -6,10 +6,9 @@
 /*   By: rafsanch <rafsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 19:45:43 by rafsanch          #+#    #+#             */
-/*   Updated: 2026/01/17 21:49:49 by rafsanch         ###   ########.fr       */
+/*   Updated: 2026/01/18 20:52:29 by rafsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 int	ft_atoi(const char *nptr)
 {
@@ -37,4 +36,3 @@ int	ft_atoi(const char *nptr)
 	}
 	return (res * neg);
 }
-

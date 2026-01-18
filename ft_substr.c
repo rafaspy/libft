@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rafsanch <rafsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/16 22:11:12 by rafsanch          #+#    #+#             */
-/*   Updated: 2026/01/18 20:51:55 by rafsanch         ###   ########.fr       */
+/*   Created: 2026/01/18 21:05:08 by rafsanch          #+#    #+#             */
+/*   Updated: 2026/01/18 21:19:38 by rafsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned char	character;
+	char				*cpy;
+	unsigned int		i;
 
-	character = (unsigned char)c;
-	while (*s)
+	if (!s)
+		return (NULL);
+	if (start >= strlen(s))
+		return (NULL);
+	if (start + len > strlen(s))
+		len = strlen(s) - start;
+	i = 0;
+	cpy = (char *)malloc(len + 1);
+	if (cpy == NULL)
 	{
-		if (*s == character)
-		{
-			return ((char *)s);
-		}
-		s++;
+		return (NULL);
 	}
-	if (character == '\0')
+	while (s[start + i] && i < len)
 	{
-		return ((char *)s);
+		cpy[i] = s[start + i];
+		i++;
 	}
-	return (NULL);
+	cpy[i] = '\0';
+	return (cpy);
 }
