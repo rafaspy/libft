@@ -6,22 +6,20 @@
 /*   By: rafsanch <rafsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 21:05:08 by rafsanch          #+#    #+#             */
-/*   Updated: 2026/01/18 21:19:38 by rafsanch         ###   ########.fr       */
+/*   Updated: 2026/01/21 18:11:57 by rafsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char *cpy;
-	int s_len;
-	unsigned int i;
+	char				*cpy;
+	unsigned int		i;
 
 	if (!s)
 		return (NULL);
-	s_len = ft_strlen(s);
-	if (start >= s_len)
+	if (start >= strlen(s))
 		return (ft_strdup(""));
 	if (start + len > strlen(s))
 		len = strlen(s) - start;

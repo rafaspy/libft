@@ -1,24 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rafsanch <rafsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/17 21:51:55 by rafsanch          #+#    #+#             */
-/*   Updated: 2026/01/18 20:49:46 by rafsanch         ###   ########.fr       */
+/*   Created: 2026/01/21 20:10:58 by rafsanch          #+#    #+#             */
+/*   Updated: 2026/01/21 20:56:47 by rafsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*calloc(size_t nmemb, size_t size)
+char	**ft_split(char const *s, char c)
 {
-	void	*ptr;
+	char	**arr_res;
+	int		i;
+	int		j;
+	int		k;
 
-	ptr = malloc(nmemb * size);
-	if (ptr == NULL)
+	i = 0;
+	j = 0;
+	k = 0;
+	if (!*s)
 		return (NULL);
-	ft_memset(ptr, 0, nmemb * size);
-	return (ptr);
+	while (s[i] == c)
+		i++;
+		// i = " "    arr res 0 = ho
+	while (s[i])
+	{
+		arr_res[j][k] = s[i];
+		i++;
+		k++;
+		if (s[i] == c)
+		{
+			arr_res[j][k] = '\0';
+			i++;
+			j++;
+			k = 0;
+		}
+	}
+	arr_res[j] = NULL;
+	return (arr_res);
 }
