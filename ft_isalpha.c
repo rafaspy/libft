@@ -6,11 +6,11 @@
 /*   By: rafsanch <rafsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 19:01:16 by rafsanch          #+#    #+#             */
-/*   Updated: 2026/01/18 19:01:18 by rafsanch         ###   ########.fr       */
+/*   Updated: 2026/01/25 17:10:43 by rafsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(unsigned char c)
+int	ft_isalpha(int c)
 {
 	if ((c < 65 || c > 90) && (c < 97 || c > 122))
 	{

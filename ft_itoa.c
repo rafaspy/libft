@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafsanch <rafsanch@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: rafsanch <rafsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 00:47:08 by rafsanch          #+#    #+#             */
-/*   Updated: 2026/01/25 00:47:08 by rafsanch         ###   ########.fr       */
+/*   Updated: 2026/01/25 16:58:01 by rafsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int count_digits(int n)
+static int	count_digits(int n)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	if (n <= 0)
@@ -26,11 +26,12 @@ static int count_digits(int n)
 	}
 	return (count);
 }
-char *ft_itoa(int n)
+
+char	*ft_itoa(int n)
 {
-	long num;
-	int len;
-	char *res;
+	long	num;
+	int		len;
+	char	*res;
 
 	len = count_digits(n);
 	res = malloc((len + 1));
