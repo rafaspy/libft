@@ -3,22 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafsanch <rafsanch@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: rafsanch <rafsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 02:39:39 by rafsanch          #+#    #+#             */
-/*   Updated: 2026/01/25 02:39:39 by rafsanch         ###   ########.fr       */
+/*   Updated: 2026/01/25 19:42:01 by rafsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
 	if (!s)
 	{
-		return (NULL);
+		return ;
 	}
-
 	while (*s)
 	{
 		write(fd, s, 1);

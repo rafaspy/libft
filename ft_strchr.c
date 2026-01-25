@@ -5,29 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rafsanch <rafsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/16 22:11:12 by rafsanch          #+#    #+#             */
-/*   Updated: 2026/01/18 20:51:55 by rafsanch         ###   ########.fr       */
+/*   Created: 2026/01/25 20:55:10 by rafsanch          #+#    #+#             */
+/*   Updated: 2026/01/25 21:15:42 by rafsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *str, int c)
 {
-	unsigned char	character;
+	int	i;
 
-	character = (unsigned char)c;
-	while (*s)
+	i = 0;
+	while (str[i] != '\0')
 	{
-		if (*s == character)
+		if (str[i] == (char)c)
 		{
-			return ((char *)s);
+			return ((char *)&str[i]);
 		}
-		s++;
+		i++;
 	}
-	if (character == '\0')
-	{
-		return ((char *)s);
-	}
+	if ((char)c == '\0')
+		return ((char *)&str[i]);
 	return (NULL);
 }

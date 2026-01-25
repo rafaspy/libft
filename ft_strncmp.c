@@ -6,13 +6,13 @@
 /*   By: rafsanch <rafsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 17:39:01 by rafsanch          #+#    #+#             */
-/*   Updated: 2026/01/18 20:51:12 by rafsanch         ###   ########.fr       */
+/*   Updated: 2026/01/25 17:17:21 by rafsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
 

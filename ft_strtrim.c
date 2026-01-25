@@ -6,7 +6,7 @@
 /*   By: rafsanch <rafsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 18:43:24 by rafsanch          #+#    #+#             */
-/*   Updated: 2026/01/21 20:02:37 by rafsanch         ###   ########.fr       */
+/*   Updated: 2026/01/25 20:28:40 by rafsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	res = (char *)malloc(end - start + 2);
 	if (!res)
 		return (NULL);
-	while (s1[start] <= end)
-		res[i++] = s1[start++];
+	while (start <= end)
+	{
+		res[i] = s1[start];
+		i++;
+		start++;
+	}
 	res[i] = '\0';
 	return (res);
 }

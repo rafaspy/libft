@@ -6,7 +6,7 @@
 /*   By: rafsanch <rafsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 21:05:08 by rafsanch          #+#    #+#             */
-/*   Updated: 2026/01/21 18:11:57 by rafsanch         ###   ########.fr       */
+/*   Updated: 2026/01/25 19:39:51 by rafsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (NULL);
-	if (start >= strlen(s))
+	if (start >= ft_strlen(s))
 		return (ft_strdup(""));
-	if (start + len > strlen(s))
-		len = strlen(s) - start;
+	if (start + len > ft_strlen(s))
+		len = ft_strlen(s) - start;
 	i = 0;
 	cpy = (char *)malloc(len + 1);
 	if (cpy == NULL)
