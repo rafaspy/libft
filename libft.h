@@ -6,7 +6,7 @@
 /*   By: rafsanch <rafsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 20:41:50 by rafsanch          #+#    #+#             */
-/*   Updated: 2026/01/25 21:16:07 by rafsanch         ###   ########.fr       */
+/*   Updated: 2026/01/25 21:30:39 by rafsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 
+char	*ft_strchr(const char *str, int c);
+
 char	*ft_strrchr(const char *s, int c);
 
 char	*ft_strtrim(char const *s1, char const *set);
@@ -81,8 +83,6 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
-
-char	*ft_strchr(const char *str, int c);
 
 typedef struct s_list
 {
