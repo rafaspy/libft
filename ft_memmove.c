@@ -6,20 +6,20 @@
 /*   By: rafsanch <rafsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 21:09:13 by rafsanch          #+#    #+#             */
-/*   Updated: 2026/01/25 17:16:15 by rafsanch         ###   ########.fr       */
+/*   Updated: 2026/01/26 22:03:30 by rafsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t n)
 {
 	const unsigned char	*s;
 	size_t				i;
 	unsigned char		*d;
 
 	s = (unsigned char *)src;
-	d = (unsigned char *)dest;
+	d = (unsigned char *)dst;
 	i = 0;
 	if (d < s)
 	{
@@ -37,5 +37,5 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 			d[n] = s[n];
 		}
 	}
-	return (dest);
+	return (dst);
 }

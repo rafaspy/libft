@@ -19,7 +19,7 @@ CFLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	ar -rcs ${NAME} ${OBJECTS}
+	ar -rcs $(NAME) $(OBJECTS)
 
 %.o: %.c libft.h
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -32,4 +32,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: all clean fclean re

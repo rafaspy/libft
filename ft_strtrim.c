@@ -6,13 +6,13 @@
 /*   By: rafsanch <rafsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 18:43:24 by rafsanch          #+#    #+#             */
-/*   Updated: 2026/01/25 20:28:40 by rafsanch         ###   ########.fr       */
+/*   Updated: 2026/01/25 22:23:42 by rafsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_in_set(char c, char const *set)
+static int	ft_in_set(char c, char const *set)
 {
 	int	i;
 
