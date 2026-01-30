@@ -6,13 +6,13 @@
 /*   By: rafsanch <rafsanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 20:10:58 by rafsanch          #+#    #+#             */
-/*   Updated: 2026/01/25 17:21:37 by rafsanch         ###   ########.fr       */
+/*   Updated: 2026/01/30 22:26:57 by rafsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count_words(char const *s, char c)
+static int	ft_count_words(char const *s, char c)
 {
 	int	i;
 	int	count;
@@ -31,47 +31,56 @@ static int	count_words(char const *s, char c)
 	return (count);
 }
 
-static char	*word_dup(const char *s, int start, int end)
+static int	ft_count_one_word(const char *s, char c)
 {
-	char	*word;
-	int		i;
+	int	i;
 
 	i = 0;
-	word = (char *)malloc(sizeof(char) * (end - start + 1));
-	if (!word)
-		return (NULL);
-	while (start < end)
+	while (s[i] && s[i] != c)
+		i++;
+	return (i);
+}
+
+static char	**ft_free(char **s, int n)
+{
+	int	i;
+
+	i = 0;
+	while (i < n)
 	{
-		word[i++] = s[start++];
+		free(s[i]);
+		s[i] = NULL;
+		i++;
 	}
-	word[i] = '\0';
-	return (word);
+	free(s);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**res;
-	int		i;
-	int		arr_i;
-	int		start;
+	size_t	i;
+	size_t	j;
+	char	**arr;
 
+	i = 0;
+	j = 0;
 	if (!s)
 		return (NULL);
-	i = 0;
-	arr_i = 0;
-	res = malloc(sizeof(char *) * (count_words(s, c) + 1));
-	if (!res)
+	arr = (char **)ft_calloc(ft_count_words(s, c) + 1, sizeof(char *));
+	if (!arr)
 		return (NULL);
 	while (s[i])
 	{
-		while (s[i] == c)
+		if (s[i] != c)
+		{
+			arr[j] = ft_substr(s, i, ft_count_one_word(&s[i], c));
+			if (!arr[j])
+				return (ft_free(arr, j));
+			j++;
+			i += ft_count_one_word(&s[i], c);
+		}
+		else
 			i++;
-		start = i;
-		while (s[i] && s[i] != c)
-			i++;
-		if (i > start)
-			res[arr_i++] = word_dup(s, start, i);
 	}
-	res[arr_i] = NULL;
-	return (res);
+	return (arr);
 }
